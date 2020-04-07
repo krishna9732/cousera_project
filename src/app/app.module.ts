@@ -22,6 +22,8 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
@@ -47,8 +49,12 @@ import { LoginComponent } from './login/login.component';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
+    MatDialogModule
   ],
   providers: [DishService],
+  entryComponents: [
+    LoginComponent
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
