@@ -23,6 +23,10 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms'; 
 
 
 
@@ -49,7 +53,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   providers: [DishService],
   entryComponents: [
