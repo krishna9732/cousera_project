@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { DishService } from './services/dish.service';
 import { HeaderComponent } from './header/header.component';
@@ -63,7 +64,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     MatSelectModule,
     MatSlideToggleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [DishService],
   entryComponents: [
