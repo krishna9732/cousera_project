@@ -31,6 +31,8 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LeaderService } from './services/leader.service';
+import { PromotionService } from './services/promotion.service';
 
 
 
@@ -67,7 +69,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatProgressSpinnerModule
   ],
-  providers: [DishService],
+  providers: [DishService,LeaderService,PromotionService],
   entryComponents: [
     LoginComponent
 ],
