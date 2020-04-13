@@ -165,7 +165,7 @@ export const DISHES: Dish[] = [
             {
                 rating: 2,
                 comment: 'It\'s your birthday, we\'re gonna party!',
-                author: '25 Cent',
+                author: 'Jon Snow',
                 date: '2011-12-02T17:57:28.556094Z'
             }
         ]

@@ -15,7 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import { MatSliderModule } from '@angular/material/slider';
 import { DishService } from './services/dish.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -33,6 +33,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LeaderService } from './services/leader.service';
 import { PromotionService } from './services/promotion.service';
+import { from } from 'rxjs';
+
 
 
 
@@ -47,7 +49,7 @@ import { PromotionService } from './services/promotion.service';
     AboutComponent,
     HomeComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,9 @@ import { PromotionService } from './services/promotion.service';
     MatSelectModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSliderModule,
+  
   ],
   providers: [DishService,LeaderService,PromotionService],
   entryComponents: [
