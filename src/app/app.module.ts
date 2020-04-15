@@ -33,6 +33,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LeaderService } from './services/leader.service';
 import { PromotionService } from './services/promotion.service';
+import { HttpClientModule} from '@angular/common/http';
+import { baseURL } from './shared/baseurl';
 import { from } from 'rxjs';
 
 
@@ -54,6 +56,7 @@ import { from } from 'rxjs';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     FlexLayoutModule,
@@ -73,7 +76,11 @@ import { from } from 'rxjs';
     MatSliderModule,
   
   ],
-  providers: [DishService,LeaderService,PromotionService],
+  providers: [DishService,
+    LeaderService,
+    PromotionService,
+    {provide: 'BaseURL', useValue: baseURL}
+  ],
   entryComponents: [
     LoginComponent
 ],
