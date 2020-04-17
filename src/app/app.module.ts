@@ -35,6 +35,7 @@ import { LeaderService } from './services/leader.service';
 import { PromotionService } from './services/promotion.service';
 import { HttpClientModule} from '@angular/common/http';
 import { baseURL } from './shared/baseurl';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { from } from 'rxjs';
 
 
@@ -79,6 +80,7 @@ import { from } from 'rxjs';
   providers: [DishService,
     LeaderService,
     PromotionService,
+    ProcessHTTPMsgService,
     {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
