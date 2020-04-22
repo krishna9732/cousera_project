@@ -76,6 +76,7 @@ export class DishdetailComponent implements OnInit {
       errmess => this.errMess = <any> errmess);
     }
 
+    
     setPrevNext(dishId: string){
       const index = this.dishIds.indexOf(dishId);
       this.prev = this.dishIds[(this.dishIds.length + index - 1) % this.dishIds.length];

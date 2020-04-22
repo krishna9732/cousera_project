@@ -1,26 +1,37 @@
 import { Component, OnInit , ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { FeedbackService } from '../services/feedback.service';
 import { Feedback, ContactType } from '../shared/feedback';
+import {visibility , expand} from '../animations/app.animation';
 import { flyInOut } from '../animations/app.animation';
+import {Params, ActivatedRoute} from '@angular/router';
+
+import { from } from 'rxjs';
 
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  host: {
-    '[@flyInOut]': 'true',
-    'style': 'display: block;'
+  host:{
+    '[@flyInOut]':'true',
+    'style': 'display:block;'
   },
-  animations: [
-    flyInOut()
+  animations:[
+    flyInOut(),
+    visibility(),
+    expand()
   ]
 })
 export class ContactComponent implements OnInit {
   feedbackForm: FormGroup;
   feedback: Feedback;
   contactType = ContactType;
+  visibility="hidden";
+  errMess: string;
+  test:boolean;
+  feedbackcopy: Feedback;
+  sv:boolean=false;
   @ViewChild('fform') feedbackFormDirective;
 
   formErrors ={
@@ -51,11 +62,18 @@ export class ContactComponent implements OnInit {
     },
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private fbs: FeedbackService, 
+              private route:ActivatedRoute) {
     this.createForm();
   }
 
   ngOnInit() {
+    // this.feed.getFeedbacks().subscribe(
+    //   (feedbacks) => this.feedbackPost = this.feedbackPost,
+    //   errmess => this.errMess = <any> errmess 
+    // );
+     
   }
 
   createForm() {
@@ -96,8 +114,16 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     this.feedback = this.feedbackForm.value;
-    console.log(this.feedback);
-    this.feedbackForm.reset({
+    this.fbs.submitFeedback(this.feedback)
+    .subscribe(feedback=>{ this.feedbackcopy = feedback;this.visibility = 'shown';this.test = false;},errmess =>this.formErrors =<any>errmess);this.feedbackcopy = null;
+    { setTimeout(() => 
+      {
+        this.feedback = this.feedback; this.sv = false; 
+        setTimeout(() => this.feedback = null, 5000);
+      }
+      , 6000);
+    };
+ this.feedbackForm.reset({
       firstname:'',
       lastname:'',
       telnum:'',
@@ -106,7 +132,7 @@ export class ContactComponent implements OnInit {
       contacttype: 'None',
       message:''
     });
-    this.feedbackFormDirective.resetForm();
+    //  this.feedbackFormDirective.resetForm();
   }
 
 }
