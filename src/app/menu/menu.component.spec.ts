@@ -10,6 +10,8 @@ import { baseURL } from '../shared/baseurl';
 import { Observable, of, from } from 'rxjs';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
@@ -35,7 +37,7 @@ describe('MenuComponent', () => {
       declarations: [MenuComponent],
       providers: [
         { provide: DishService, useValue: dishServiceStub },
-        { provide: 'baseURL', useValue: baseURL },
+        { provide: 'BaseURL', useValue: baseURL },
       ],
     }).compileComponents();
 
@@ -50,5 +52,10 @@ describe('MenuComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Item should be 4', () => {
+    expect(component.dishes.length).toBe(4);
+    expect(component.dishes[1].name).toBe('Zucchipakoda');
   });
 });
