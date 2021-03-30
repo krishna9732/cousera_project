@@ -24,7 +24,7 @@ export class AboutComponent implements OnInit {
 
   constructor( private leaderService:LeaderService,
     private route: ActivatedRoute,
-    @Inject('BaseURL') private BaseURL) { }
+    @Inject('BaseURL') public BaseURL) { }
 
   ngOnInit(): void {
     this.leaderService.getLeaders().subscribe((leaders)=>this.leaders =leaders);
